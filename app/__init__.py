@@ -30,6 +30,10 @@ def login():
             form.username.data, form.remember_me.data))
         return redirect('/index')
     return render_template('login.html', title='Sign In', form=form)
+
+@app.route('/logout', methods=['GET', 'POST' ])
+def logout():
+    pass
     
 
 if __name__ == '__main__':
