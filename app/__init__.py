@@ -2,6 +2,7 @@ from flask import Flask, redirect, render_template, url_for
 from config import Config
 from formclass import LoginForm
 from flask import flash
+from config import Config
 
 
 app = Flask(__name__)
@@ -29,7 +30,7 @@ def login():
         flash('Login requested for user {}, remember_me={}'.format(
             form.username.data, form.remember_me.data))
         return redirect(url_for('index'))
-    return redirect(url_for('login.html', title='Sign In', form=form))
+    return render_template('login', title='Sign In', form=form)
 
 @app.route('/logout', methods=['GET', 'POST' ])
 def logout():
